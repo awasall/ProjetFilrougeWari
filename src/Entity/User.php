@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
     /**
-     * @ORM\Id()
+     * @ORM\Id()use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */

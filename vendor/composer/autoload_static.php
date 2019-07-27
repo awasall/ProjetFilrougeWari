@@ -12,6 +12,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -86,6 +87,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Swagger\\' => 8,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
         'P' => 
@@ -100,6 +102,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'N' => 
         array (
             'Nelmio\\CorsBundle\\' => 18,
+            'Nelmio\\ApiDocBundle\\' => 20,
             'Negotiation\\' => 12,
             'Namshi\\JOSE\\' => 12,
         ),
@@ -112,6 +115,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         array (
             'Fig\\Link\\' => 9,
             'FOS\\RestBundle\\' => 15,
+        ),
+        'E' => 
+        array (
+            'EXSyst\\Component\\Swagger\\' => 25,
         ),
         'D' => 
         array (
@@ -368,6 +375,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
+        'Swagger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle',
@@ -400,6 +411,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         array (
             0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
         ),
+        'Nelmio\\ApiDocBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelmio/api-doc-bundle',
+        ),
         'Negotiation\\' => 
         array (
             0 => __DIR__ . '/..' . '/willdurand/negotiation/src/Negotiation',
@@ -423,6 +438,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'FOS\\RestBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
+        ),
+        'EXSyst\\Component\\Swagger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/exsyst/swagger/src',
         ),
         'Doctrine\\ORM\\' => 
         array (
