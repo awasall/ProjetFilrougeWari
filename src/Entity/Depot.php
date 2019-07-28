@@ -34,6 +34,11 @@ class Depot
      */
     private $partenaire;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $caissier;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Depot
     public function setPartenaire(?Partenaire $partenaire): self
     {
         $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    public function getCaissier(): ?string
+    {
+        return $this->caissier;
+    }
+
+    public function setCaissier(string $caissier): self
+    {
+        $this->caissier = $caissier;
 
         return $this;
     }

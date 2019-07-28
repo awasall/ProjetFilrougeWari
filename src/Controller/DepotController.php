@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\User;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +23,8 @@ class DepotController extends FOSRestController
         $form->submit($data);
         if($form->isSubmitted() && $form->isValid()){
             $depot->setDateDepot(new \Datetime());
+            $user = $this->getUser();
+        $depot->setCaissier($user->getId());
             var_dump($data);
             $em=$this->getDoctrine()->getManager();
             $em->persist($depot);
@@ -32,7 +34,11 @@ class DepotController extends FOSRestController
         $partenaire->setSolde($value);
         $em->persist($partenaire);
         $em->flush();
+        
+        
+
             return $this->handleView($this->view(['status'=>'ok'],Response::HTTP_CREATED));
+
         }
         return $this->handleView($this->view($form->getErrors()));
 

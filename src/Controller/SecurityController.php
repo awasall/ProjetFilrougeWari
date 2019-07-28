@@ -69,4 +69,29 @@ class SecurityController extends AbstractController
             'roles' => $user->getRoles()
         ]);
     }
+
+    /**
+     * @Route("/user/{id}", name="statut", methods={"PUT"})
+     */
+    public function statut(User $user,EntityManagerInterface $entityManager)
+    {
+        if($user->getStatut()=="actif")
+        {
+            $user->setStatut("bloquer");
+        
+        }
+        else
+        {
+            $user->setStatut("actif");
+        
+        }
+        $entityManager->persist($user);
+        $entityManager->flush();
+        $data = [
+            'status' => 200,
+            'message' => 'Le partenaire a bien été mis à jour'
+        ];
+        return new JsonResponse($data);
+    }
+
 }

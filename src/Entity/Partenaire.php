@@ -11,6 +11,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PartenaireRepository")
  * @UniqueEntity(fields={"numerocompte"}, message="Cet utilisateur existe déjà")
+ * @UniqueEntity(fields={"ninea"}, message="Cet utilisateur existe déjà")
+ * @UniqueEntity(fields={"raisonsociale"}, message="Cet utilisateur existe déjà")
+ * @UniqueEntity(fields={"email"}, message="Cet utilisateur existe déjà")
+
  */
 class Partenaire
 {
@@ -50,6 +54,11 @@ class Partenaire
      * @ORM\Column(type="bigint")
      */
     private $solde;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
     public function getId(): ?int
     {
@@ -124,6 +133,18 @@ class Partenaire
     public function setSolde(int $solde): self
     {
         $this->solde = $solde;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
