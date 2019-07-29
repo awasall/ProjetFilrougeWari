@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PartenaireRepository")
  * @UniqueEntity(fields={"numerocompte"}, message="Cet utilisateur existe déjà")
  * @UniqueEntity(fields={"ninea"}, message="Cet utilisateur existe déjà")
@@ -16,6 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"email"}, message="Cet utilisateur existe déjà")
 
  */
+
+
 class Partenaire
 {
     /**
@@ -31,7 +32,7 @@ class Partenaire
     private $ninea;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255,unique=true )
      */
     private $raisonsociale;
 
@@ -46,12 +47,12 @@ class Partenaire
     private $telephone;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="bigint" ,unique=true)
      */
     private $numerocompte;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="bigint" ,unique=true)
      */
     private $solde;
 

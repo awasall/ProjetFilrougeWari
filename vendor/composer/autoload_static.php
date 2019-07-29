@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
 {
     public static $files = array (
+        '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
@@ -31,6 +32,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         ),
         'T' => 
         array (
+            'Twig\\Extensions\\' => 16,
             'Twig\\' => 5,
         ),
         'S' => 
@@ -48,6 +50,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
             'Symfony\\Component\\WebLink\\' => 26,
             'Symfony\\Component\\VarExporter\\' => 30,
             'Symfony\\Component\\Validator\\' => 28,
+            'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Templating\\' => 29,
             'Symfony\\Component\\Stopwatch\\' => 28,
             'Symfony\\Component\\Serializer\\' => 29,
@@ -86,6 +89,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
             'Symfony\\Bundle\\MakerBundle\\' => 27,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
+            'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'Swagger\\' => 8,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
@@ -97,6 +101,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
+            'Pagerfanta\\' => 11,
             'PackageVersions\\' => 16,
         ),
         'N' => 
@@ -118,6 +123,7 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         ),
         'E' => 
         array (
+            'EasyCorp\\Bundle\\EasyAdminBundle\\' => 32,
             'EXSyst\\Component\\Swagger\\' => 25,
         ),
         'D' => 
@@ -162,6 +168,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Twig\\Extensions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/extensions/src',
         ),
         'Twig\\' => 
         array (
@@ -218,6 +228,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'Symfony\\Component\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/validator',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
         ),
         'Symfony\\Component\\Templating\\' => 
         array (
@@ -371,6 +385,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bridge',
         ),
+        'Symfony\\Bridge\\PhpUnit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/phpunit-bridge',
+        ),
         'Symfony\\Bridge\\Doctrine\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
@@ -402,6 +420,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'Pagerfanta\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pagerfanta/pagerfanta/src/Pagerfanta',
         ),
         'PackageVersions\\' => 
         array (
@@ -438,6 +460,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
         'FOS\\RestBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
+        ),
+        'EasyCorp\\Bundle\\EasyAdminBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easycorp/easyadmin-bundle/src',
         ),
         'EXSyst\\Component\\Swagger\\' => 
         array (
@@ -515,6 +541,10 @@ class ComposerStaticInitb9897bcb3c6129ea54d506ae371bf693
     public static $prefixesPsr0 = array (
         'T' => 
         array (
+            'Twig_Extensions_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/extensions/lib',
+            ),
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',

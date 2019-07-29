@@ -4,12 +4,17 @@ fos_rest:
         default_format: json
         include_format: false
     body_listener: true
+    # format_listener:
+    #     rules:
+    #         - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+    # param_fetcher_listener: true
+    # access_denied_listener:
+    #     json: true
     format_listener:
+        enabled: true
         rules:
-            - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
-    param_fetcher_listener: true
-    access_denied_listener:
-        json: true
+            - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: false }
+            - { path: '^/', stop: true } # Available for version >= 1.5
     view:
         view_response_listener:  'force'
         formats: 

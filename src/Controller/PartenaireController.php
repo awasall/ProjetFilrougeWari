@@ -35,7 +35,6 @@ class PartenaireController extends AbstractController
             'message' => 'Le partenaire a bien été ajouté'
         ];
 
-
         $user = new User();
             $user->setEmail($partenaire->getEmail());
             $user->setPassword($passwordEncoder->encodePassword($user, 'passer'));

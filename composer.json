@@ -8,6 +8,7 @@
         "api-platform/api-pack": "^1.2",
         "doctrine/annotations": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^2.0",
+        "easycorp/easyadmin-bundle": "^2.2",
         "friendsofsymfony/rest-bundle": "^2.5",
         "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/api-doc-bundle": "^3.4",
@@ -26,6 +27,7 @@
     "require-dev": {
         "symfony/browser-kit": "4.3.*",
         "symfony/css-selector": "4.3.*",
+        "symfony/phpunit-bridge": "^4.3",
         "symfony/web-server-bundle": "4.3.*"
     },
     "config": {

@@ -24,7 +24,8 @@ class DepotController extends FOSRestController
         if($form->isSubmitted() && $form->isValid()){
             $depot->setDateDepot(new \Datetime());
             $user = $this->getUser();
-        $depot->setCaissier($user->getId());
+            $depot->setCaissier($user->getId());
+
             var_dump($data);
             $em=$this->getDoctrine()->getManager();
             $em->persist($depot);
@@ -35,8 +36,6 @@ class DepotController extends FOSRestController
         $em->persist($partenaire);
         $em->flush();
         
-        
-
             return $this->handleView($this->view(['status'=>'ok'],Response::HTTP_CREATED));
 
         }
