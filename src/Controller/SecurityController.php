@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 /** 
@@ -24,6 +25,7 @@ class SecurityController extends AbstractController
 
 /** 
  * @Route("/register", name="api_register", methods={"POST"})
+ * @Security("has_role('ROLE_SUPERADMIN') or has_role('ROLE_AdminPartenaire')")
  */
 
 public function register(ObjectManager $om, UserPasswordEncoderInterface $passwordEncoder, Request $request)
@@ -109,6 +111,7 @@ public function register(ObjectManager $om, UserPasswordEncoderInterface $passwo
 
     /** 
      * @Route("/user/{id}", name="statut", methods={"PUT"})
+     * @Security("has_role('ROLE_SUPERADMIN') or has_role('ROLE_AdminPartenaire')")
      */
     public function statut(User $user,EntityManagerInterface $entityManager)
     {

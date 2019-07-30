@@ -9,7 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 use  App\Entity\Depot;
 use App\Form\DepotType;
 use FOS\RestBundle\Controller\FOSRestController;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+/**
+ * @Security("has_role('ROLE_CAISSIER')")
+ */
 class DepotController extends FOSRestController
 {
     /**
