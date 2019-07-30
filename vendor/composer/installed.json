@@ -1814,17 +1814,17 @@
     },
     {
         "name": "lexik/jwt-authentication-bundle",
-        "version": "v2.6.3",
-        "version_normalized": "2.6.3.0",
+        "version": "v2.6.4",
+        "version_normalized": "2.6.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/lexik/LexikJWTAuthenticationBundle.git",
-            "reference": "c4c6b54acf5388c621d3e917c9cb15262c0501cf"
+            "reference": "f79f20b282834878aab10530ca102a80396624ed"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/lexik/LexikJWTAuthenticationBundle/zipball/c4c6b54acf5388c621d3e917c9cb15262c0501cf",
-            "reference": "c4c6b54acf5388c621d3e917c9cb15262c0501cf",
+            "url": "https://api.github.com/repos/lexik/LexikJWTAuthenticationBundle/zipball/f79f20b282834878aab10530ca102a80396624ed",
+            "reference": "f79f20b282834878aab10530ca102a80396624ed",
             "shasum": ""
         },
         "require": {
@@ -1848,7 +1848,7 @@
             "gesdinet/jwt-refresh-token-bundle": "Implements a refresh token system over Json Web Tokens in Symfony",
             "spomky-labs/lexik-jose-bridge": "Provides a JWT Token encoder with encryption support"
         },
-        "time": "2019-04-17T13:54:49+00:00",
+        "time": "2019-07-29T10:02:31+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -1870,11 +1870,6 @@
         ],
         "authors": [
             {
-                "name": "Robin Chalas",
-                "email": "robin.chalas@gmail.com",
-                "homepage": "https://github.com/chalasr"
-            },
-            {
                 "name": "Jeremy Barthe",
                 "email": "j.barthe@lexik.fr",
                 "homepage": "https://github.com/jeremyb"
@@ -1890,13 +1885,18 @@
                 "homepage": "https://github.com/cedric-g"
             },
             {
-                "name": "Lexik Community",
-                "homepage": "https://github.com/lexik/LexikJWTAuthenticationBundle/graphs/contributors"
-            },
-            {
                 "name": "Dev Lexik",
                 "email": "dev@lexik.fr",
                 "homepage": "https://github.com/lexik"
+            },
+            {
+                "name": "Robin Chalas",
+                "email": "robin.chalas@gmail.com",
+                "homepage": "https://github.com/chalasr"
+            },
+            {
+                "name": "Lexik Community",
+                "homepage": "https://github.com/lexik/LexikJWTAuthenticationBundle/graphs/contributors"
             }
         ],
         "description": "This bundle provides JWT authentication for your Symfony REST API",
