@@ -46,6 +46,6 @@ security:
          - { path: ^/api/partenaire, roles: ROLE_SUPERADMIN }
          - { path: ^/api/depot, roles: ROLE_caissier }
          - { path: ^/api/register, roles: ROLE_SUPERADMIN }
-
+        #- { path: ^/api/login, roles: ROLE_SUPERADMIN }
         #- { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }

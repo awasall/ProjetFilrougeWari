@@ -13,7 +13,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"ninea"}, message="Cet utilisateur existe déjà")
  * @UniqueEntity(fields={"raisonsociale"}, message="Cet utilisateur existe déjà")
  * @UniqueEntity(fields={"email"}, message="Cet utilisateur existe déjà")
-
  */
 
 

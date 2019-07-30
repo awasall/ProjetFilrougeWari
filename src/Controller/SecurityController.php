@@ -4,59 +4,94 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 
-/**
+
+/** 
  * @Route("/api")
  */
 class SecurityController extends AbstractController
 {
-    /**
-     * @Route("/register", name="register", methods={"POST"})
-     */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, ValidatorInterface $validator)
-    {
-        $values = json_decode($request->getContent());
-        if(isset($values->email,$values->password)) {
-            $user = new User();
-            $user->setEmail($values->email);
-            $user->setPassword($passwordEncoder->encodePassword($user, $values->password));
-            $user->setRoles($values->roles);
-            $user->setNomcomplet($values->nomcomplet);
-            $user->setPropriete($values->propriete);
-            $user->setAdresse($values->adresse);
-            $user->setTelephone($values->telephone);
-            $user->setStatut($values->statut);
-            $errors = $validator->validate($user);
-            if(count($errors)) {
-                $errors = $serializer->serialize($errors, 'json');
-                return new Response($errors, 500, [
-                    'Content-Type' => 'application/json'
-                ]);
-            }
-            $entityManager->persist($user);
-            $entityManager->flush();
 
-            $data = [
+/** 
+ * @Route("/register", name="api_register", methods={"POST"})
+ */
+
+public function register(ObjectManager $om, UserPasswordEncoderInterface $passwordEncoder, Request $request)
+{
+
+   $user = new User();
+
+   $email                  = $request->request->get("email");
+   $password               = $request->request->get("password");
+   $passwordConfirmation   = $request->request->get("password_confirmation");
+   $roles                  = $request->request->get("roles");
+   $nomcomplet             = $request->request->get("nomcomplet");
+   $propriete              = $request->request->get("propriete");
+   $adresse                = $request->request->get("adresse");
+   $telephone              = $request->request->get("telephone");
+   $statut                 = $request->request->get("statut");
+
+   $errors = [];
+   if($password != $passwordConfirmation)
+   {
+     $errors[] = "Mots de Passe ne correspondent pas.";
+   }
+
+   if(strlen($password) < 6)
+   {
+     $errors[] = "Mot de Passe doit etre superieur ou égal à 6 caractéres.";
+   }
+
+   if(!$errors)
+   {
+        $encodedPassword = $passwordEncoder->encodePassword($user, $password);
+        $user->setEmail($email);
+        $user->setPassword($encodedPassword);
+        $user->setRoles($roles);
+        $user->setNomcomplet($nomcomplet);
+        $user->setPropriete($propriete);
+        $user->setAdresse($adresse);
+        $user->setTelephone($telephone);
+        $user->setStatut($statut);
+
+
+        try
+        {
+            $om->persist($user);
+            $om->flush();
+           
+                      $data = [
                 'status' => 201,
                 'message' => 'L\'utilisateur a été créé'
             ];
-
             return new JsonResponse($data, 201);
         }
-        $data = [
-            'status' => 500,
-            'message' => 'Vous devez renseigner les clés email et password'
-        ];
-        return new JsonResponse($data, 500);
-    }
+        catch(UniqueConstraintViolationException $e)
+        {
+            $errors[] = "l'email fourni existe déja !";
+        }
+        catch(\Exception $e)
+        {
+            $errors[] = "Unable to save new user at this time.";
+        }
+   }
+  
+   return $this->json([
+     'errors' => $errors
+   ], 400);
+}
+
+
 
     /**
      * @Route("/login", name="login", methods={"POST"})
@@ -68,9 +103,11 @@ class SecurityController extends AbstractController
             'email' => $user->getUsername(),
             'roles' => $user->getRoles()
         ]);
+
+        
     }
 
-    /**
+    /** 
      * @Route("/user/{id}", name="statut", methods={"PUT"})
      */
     public function statut(User $user,EntityManagerInterface $entityManager)
