@@ -26,12 +26,12 @@ class Partenaire
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $ninea;
 
     /**
-     * @ORM\Column(type="string", length=255,unique=true )
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $raisonsociale;
 
@@ -41,17 +41,17 @@ class Partenaire
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=12, unique=true)
      */
     private $telephone;
 
     /**
-     * @ORM\Column(type="bigint" ,unique=true)
+     * @ORM\Column(type="bigint", unique=true)
      */
     private $numerocompte;
 
     /**
-     * @ORM\Column(type="bigint" ,unique=true)
+     * @ORM\Column(type="bigint")
      */
     private $solde;
 

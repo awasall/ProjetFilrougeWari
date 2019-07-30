@@ -39,7 +39,7 @@ class DepotController extends FOSRestController
         $em->persist($partenaire);
         $em->flush();
         
-            return $this->handleView($this->view(['status'=>'ok'],Response::HTTP_CREATED));
+            return $this->handleView($this->view(['status'=>'Depot validé'],Response::HTTP_CREATED));
 
         }
         return $this->handleView($this->view($form->getErrors()));
