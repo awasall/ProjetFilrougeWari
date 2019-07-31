@@ -38,7 +38,7 @@ public function register(ObjectManager $om, UserPasswordEncoderInterface $passwo
    $passwordConfirmation   = $request->request->get("password_confirmation");
    $roles                  = $request->request->get("roles");
    $nomcomplet             = $request->request->get("nomcomplet");
-   $propriete              = $request->request->get("propriete");
+   //$propriete              = $request->request->get("propriete");
    $adresse                = $request->request->get("adresse");
    $telephone              = $request->request->get("telephone");
    $statut                 = $request->request->get("statut");
@@ -61,7 +61,14 @@ public function register(ObjectManager $om, UserPasswordEncoderInterface $passwo
         $user->setPassword($encodedPassword);
         $user->setRoles($roles);
         $user->setNomcomplet($nomcomplet);
-        $user->setPropriete($propriete);
+        $utilisateur = $this->getUser();
+        if($utilisateur->getRoles()[0]=='ROLE_SUPERADMIN'){
+            $user->setPropriete('WARI');
+        }
+        else if($utilisateur->getRoles()[0]=='ROLE_AdminPartenaire'){
+                $user->setPropriete($utilisateur->getPropriete());
+        }
+        //$user->setPropriete($propriete);
         $user->setAdresse($adresse);
         $user->setTelephone($telephone);
         $user->setStatut($statut);
